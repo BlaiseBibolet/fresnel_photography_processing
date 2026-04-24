@@ -15,11 +15,11 @@ output_folder = 'processed/';
 if ~exist(output_folder, 'dir'), mkdir(output_folder); end
 
 % Load and normalize your Star PSF
-psf_raw = im2double(imread('data2/PSF/PSF2.tif'));
+psf_raw = im2double(imread('data2/PSF/PSF2.jpg'));
 PSF = psf_raw / sum(psf_raw(:));
 
 % Get list of all images with the specified extension in the folder
-file_list = dir(fullfile(input_folder, '*.tif')); % Change extension if needed
+file_list = dir(fullfile(input_folder, '*.jpg')); % Change extension if needed
 
 % Define Constants
 NSR = .00005; % noise-to-signal ratio
