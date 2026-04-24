@@ -1,4 +1,22 @@
 # fresnel_photography_processing
+*HOW TO RUN*
+
+1. Download the .zip folder.
+2. Open and run example1.m - This runs deconvolution on a single USAF resolution target image and displays the PSF, raw image, and processed image.
+3. Open and run example2.m - This runs deconvolution and crops a single moon image, then displays the PSF, the raw image, the processed image and the procesed and cropped image. *Note this uses moon_crop which requires the image processing toolbox*
+4. Open and run BatchDeconvolution.m - This runs the batch deconvolution of the 5 example moon images in /data2 and saves the output images in a new folder called /processed
+
+
+*TIPS AND TRICKS*
+
+- For best results, use raw images (the example uses JPG and PNG because of github filesize restrictions).
+
+- crop_moon uses functions from the image processing library which will need to be installed. 
+
+- BatchDeconvolution.m uses crop_moon for to reduce filesize on the outputs. If the user does not have the matlab image procesing library, thery can simply comment out the crop_size parameter. 
+
+
+*MORE INFO*
 
 This includes 3 matlab scripts to assist batch deblurring of images taken with a fresnel lens camera system. It can be applied to other camera sensors as long as there is a PSF and image taken with the same focal length and focus. 
 
