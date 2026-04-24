@@ -25,7 +25,7 @@ Where,
 
 - w - Deconvolution filter ​
 
-Y,H,$\hat{X}$,G – Fourier Transforms of y,h,$\hat{x}$,g
+Y,H, $\hat{X}$ ,G – Fourier Transforms of y,h, $\hat{x}$ ,g
 
 
 wiener_deconvolution(img, psf, nsr) is my implementation of wiener deconvolution given an initial image (img), the systems Point Spread function (psf) and an estimated Noise to Signal Ration (nsr).
