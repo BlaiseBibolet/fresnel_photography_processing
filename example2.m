@@ -1,10 +1,10 @@
 clear; clear all;
 
 % Load the image from a given filepath
-img = im2double(imread('data2/moon1.jpg'));
+img = im2double(imread('data2/moon1.TIF'));
 
 % Load the PSF from a given path
-psf_raw = im2double(imread('data2/PSF/PSF2.jpg'));
+psf_raw = im2double(imread('data2/PSF/PSF2.TIF'));
 
 % Set the Noise to Signal Ratio
 NSR = .00005;
