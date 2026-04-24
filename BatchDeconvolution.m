@@ -5,17 +5,17 @@
 clear; clear all;
 
 %% Setup Folders and PSF
-input_folder = 'test_small/'; % Point to folder where raw images are stored
+input_folder = 'data2/'; % Point to folder where raw images are stored
 
 % Points to folder where processed images will be stored. If the folder
 % does not exist, one will be created. 
-output_folder = 'test_small_restored_notaper_nocrop/'; 
+output_folder = 'processed/'; 
 
 % Creates export folder if the selected one above does not exist
 if ~exist(output_folder, 'dir'), mkdir(output_folder); end
 
 % Load and normalize your Star PSF
-psf_raw = im2double(imread('PSF2.tif'));
+psf_raw = im2double(imread('data2/PSF/PSF2.tif'));
 PSF = psf_raw / sum(psf_raw(:));
 
 % Get list of all images with the specified extension in the folder
@@ -23,7 +23,7 @@ file_list = dir(fullfile(input_folder, '*.tif')); % Change extension if needed
 
 % Define Constants
 NSR = .00005; % noise-to-signal ratio
-% crop_size = [700, 700]; % Crop size - comment out if no crop wanted
+crop_size = [700, 700]; % Crop size - comment out if no crop wanted
 
 
 % Processing Loop over every image
@@ -39,7 +39,7 @@ for i = 1:length(file_list)
     img_w = wiener_deconvolution(img, PSF, NSR);
 
     if exist("crop_size", 'var')
-        imgCropped = crop_image(img_w, crop_size);
+        imgCropped = crop_moon(img_w, crop_size);
         file_suffix = '_cropped_processed';
     else
         imgCropped = img_w;
