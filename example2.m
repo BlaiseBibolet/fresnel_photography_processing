@@ -1,10 +1,10 @@
 clear; clear all;
 
 % Load the image from a given filepath
-img = im2double(imread('data2/moon1.TIF'));
+img = im2double(imread('data2/moon1.jpg'));
 
 % Load the PSF from a given path
-psf_raw = im2double(imread('data2/PSF/PSF2.TIF'));
+psf_raw = im2double(imread('data2/PSF/PSF2.jpg'));
 
 % Set the Noise to Signal Ratio
 NSR = .00005;
@@ -22,4 +22,22 @@ I = wiener_deconvolution(img,PSF, NSR);
 % Crop the result
 J = crop_moon(I,crop_size);
 
-imshow(J, []);
+% Display the results
+
+tiledlayout(2,2);
+
+nexttile;
+imshow(psf_raw);
+title('Point Spread Function');
+
+nexttile;
+imshow(img);
+title('Raw Camera Image');
+
+nexttile;
+imshow(I,[]);
+title('Processed Image');
+
+nexttile;
+imshow(J,[]);
+title('Processed and Cropped Image');
